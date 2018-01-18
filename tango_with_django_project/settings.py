@@ -14,12 +14,16 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-print (BASE_DIR)
+
 
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-print (TEMPLATE_DIR) #added by LR to 
+ #added by LR to 
 # avoid hard-coding path to templates directory
 
+STATIC_DIR = os.path.join(BASE_DIR, 'static') #added by LR to direct Django
+#to image of Rango
+
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -31,6 +35,10 @@ SECRET_KEY = 'im$udrgemp&%em5q_$9665b5oic3jac2w4e#xrppmb5tp)-y(n'
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+MEDIA_ROOT = MEDIA_DIR
+
+MEDIA_URL = '/media/'
 
 
 # Application definition
@@ -68,6 +76,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -123,4 +132,6 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+STATICFILES_DIRS = [STATIC_DIR, ]
 STATIC_URL = '/static/'
+
