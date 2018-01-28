@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-
+{% extends 'rango/base.html' %}
 
 {% load staticfiles %}
 
 <html>
 
 	<head>
-		<title>Rango</title>
+		<title>Rango
+		{% block title_block %}
+		{% endblock %}
+		</title>
 	</head>
 
 
 	<body>
+		{% block body_block %}
 		<h1>Rango says...</h1>
 		<div>hey there partner!</div>
 		<h2> Most Liked Categories: </h2>
